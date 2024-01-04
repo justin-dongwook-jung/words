@@ -1,0 +1,177 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: fit-content;
+
+    background-repeat: no-repeat;
+    background-size: 0.5em auto;
+    background-position: right 0.25em center;
+    padding: .5em 1em .5em .5em;
+    margin-left: 1px;
+
+    background-image: url("data:image/svg+xml;charset=utf-8, \
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'> \
+      <polygon points='0,0 60,0 30,40' style='fill:black;'/> \
+    </svg>");
+}
+
+button {
+    background: #196b94;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10pt;
+    text-shadow: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 5px;
+    padding: 3px 7px;
+}
+
+button:hover, button:active {
+    background: #016abc;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-shadow: none;
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
+
+p {
+    margin: .1em 1em 0 1em;
+    font-weight: 400;
+}
+
+.defaultLabel {
+    font-weight: 500;
+}
+
+#menuBox {
+    position: fixed;
+    height: 40px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-left: 10px;
+    padding-top: 10px;
+    justify-content: left;
+}
+
+#wordsBox {
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 105px);
+    overflow: auto;
+    top: 50px;
+    bottom: 35px;
+}
+
+#navigator {
+    height: 35px;
+    width: 100%;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+}
+
+#preChapterBtn {
+    position: fixed;
+    left: 10px;
+}
+
+#nextChapterBtn {
+    position: fixed;
+    right: 10px;
+}
+
+#chSelect {
+    width: 50px;
+}
+
+#subVersion {
+    position: fixed;
+    right: 10px;
+}
+
+#loadingBox {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.loader {
+    width: 150px;
+    padding: 50px;
+}
+
+.loader-wheel {
+    animation: spin 1s infinite linear;
+    border: 2px solid rgba(30, 30, 30, 0.5);
+    border-left: 4px solid #fff;
+    border-radius: 50%;
+    height: 200px;
+    margin-bottom: 10px;
+    width: 200px;
+    align-self: center;
+}
+
+.loader-text {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.loader-text:after {
+    content: 'Loading';
+    animation: load 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes load {
+    0% {
+        content: 'Loading';
+    }
+    33% {
+        content: 'Loading.';
+    }
+    67% {
+        content: 'Loading..';
+    }
+    100% {
+        content: 'Loading...';
+    }
+}
