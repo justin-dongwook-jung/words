@@ -110,7 +110,11 @@ p {
 
     #test1Btn,
     #test2Btn,
-    #test3Btn,
+    #test3Btn {
+        margin: 0 5px;
+        -webkit-user-select: none;
+        user-select: none;
+    }
     #doneCheck {
         margin: 0 5px;
     }

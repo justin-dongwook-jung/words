@@ -111,17 +111,13 @@ nextBtn.onclick = () => {
 
 
 test1Btn.ontouchstart = () => {
-  console.log('touch start!');
-}
-
-test1Btn.ontouchmove = () => {
-  console.log('touch move!');
+  printWord('test1');
 }
 
 test1Btn.ontouchend = () => {
-  console.log('touch end!');
+  printWord();
 }
 
 test1Btn.ontouchcancel = () => {
-  console.log('touch cancel!');
+  printWord();
 }
