@@ -53,6 +53,11 @@ if(currentDate.getMonth() == 11 && currentDate.getDate() == 31) nextBtn.hidden =
 let currentMonth = currentDate.getMonth()+1;
 let currentDay = currentDate.getDate();
 
+//암기 체크
+let lsId = ('00' + currentMonth).slice(-2)+('00' + currentDay).slice(-2);
+let isDone = localStorage.getItem(lsId);
+if(isDone) doneCheck.checked = true;
+
 fetch('https://justin-dongwook-jung.github.io/words/words.json').then(result => {
   result.json().then(data => {
     //아직 구절이 추가 안된 경우
@@ -67,7 +72,7 @@ fetch('https://justin-dongwook-jung.github.io/words/words.json').then(result => 
     book = data[currentMonth][currentDay].book;
     chapter = data[currentMonth][currentDay].chapter;
     verses = data[currentMonth][currentDay].verses;
-    
+
     printWord();
   })
 })
@@ -109,15 +114,19 @@ nextBtn.onclick = () => {
   window.location.href = url;
 }
 
+//암기 완료 체크
 doneCheck.onchange = () => {
   if(doneCheck.checked){
+    localStorage.setItem(lsId, true);
     alert('완료');
   }
   else {
+    localStorage.removeItem(lsId);
     alert('취소');
   }
 }
 
+//버튼 이벤트
 test1Btn.onmousedown = () => printWord('test1');
 test1Btn.ontouchstart = () => printWord('test1');
 test1Btn.onmouseup = () => printWord();
