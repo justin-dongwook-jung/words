@@ -58,7 +58,7 @@ let lsId = ('00' + currentMonth).slice(-2)+('00' + currentDay).slice(-2);
 let isDone = localStorage.getItem(lsId);
 if(isDone) doneCheck.checked = true;
 
-fetch('https://justin-dongwook-jung.github.io/words/words.json').then(result => {
+fetch('words.json').then(result => {
   result.json().then(data => {
     //아직 구절이 추가 안된 경우
     if(!data[currentMonth] || !data[currentMonth][currentDay]){
