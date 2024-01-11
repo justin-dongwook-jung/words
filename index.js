@@ -74,6 +74,10 @@ fetch('https://justin-dongwook-jung.github.io/words/words.json').then(result => 
     verses = data[currentMonth][currentDay].verses;
 
     printWord();
+
+    let tomorrow = new Date(currentDate);
+    tomorrow.setDate(tomorrow.getDate()+1);
+    if(!data[tomorrow.getMonth()+1] || !data[tomorrow.getMonth()+1][tomorrow.getDate()])  nextBtn.hidden = true;
   })
 })
 
