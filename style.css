@@ -66,7 +66,7 @@ p {
 
 #testBox {
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
     padding: 10px;
     text-align: center;
@@ -77,9 +77,15 @@ p {
 
 #test1Btn,
 #test2Btn,
-#test3Btn,
+#test3Btn {
+    margin: 0 5px;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 100px;
+    height: 50px;
+}
+
 #doneCheck {
-    margin: 0 10px;
     width: 100px;
     height: 50px;
 }
@@ -103,9 +109,12 @@ p {
 
     #testBox {
         position: fixed;
-        bottom: 0;
+        bottom: 10px;
         width: 100%;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #test1Btn,
@@ -114,9 +123,6 @@ p {
         margin: 0 5px;
         -webkit-user-select: none;
         user-select: none;
-    }
-    #doneCheck {
-        margin: 0 5px;
     }
 }
   

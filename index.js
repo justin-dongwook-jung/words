@@ -109,15 +109,33 @@ nextBtn.onclick = () => {
   window.location.href = url;
 }
 
-
-test1Btn.ontouchstart = () => {
-  printWord('test1');
+doneCheck.onchange = () => {
+  if(doneCheck.checked){
+    alert('완료');
+  }
+  else {
+    alert('취소');
+  }
 }
 
-test1Btn.ontouchend = () => {
-  printWord();
-}
+test1Btn.onmousedown = () => printWord('test1');
+test1Btn.ontouchstart = () => printWord('test1');
+test1Btn.onmouseup = () => printWord();
+test1Btn.ontouchend = () => printWord();
+test1Btn.onmouseleave = () => printWord();
+test1Btn.ontouchcancel = () => printWord();
 
-test1Btn.ontouchcancel = () => {
-  printWord();
-}
+test2Btn.onmousedown = () => printWord('test2');
+test2Btn.ontouchstart = () => printWord('test2');
+test2Btn.onmouseup = () => printWord();
+test2Btn.ontouchend = () => printWord();
+test2Btn.onmouseleave = () => printWord();
+test2Btn.ontouchcancel = () => printWord();
+
+test3Btn.onmousedown = () => printWord('test3');
+test3Btn.ontouchstart = () => printWord('test3');
+test3Btn.onmouseup = () => printWord();
+test3Btn.ontouchend = () => printWord();
+test3Btn.onmouseleave = () => printWord();
+test3Btn.ontouchcancel = () => printWord();
+
