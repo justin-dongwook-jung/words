@@ -68,7 +68,7 @@ fetch('https://justin-dongwook-jung.github.io/words/words.json').then(result => 
     chapter = data[currentMonth][currentDay].chapter;
     verses = data[currentMonth][currentDay].verses;
     
-    printWord('test1');
+    printWord();
   })
 })
 
@@ -107,4 +107,21 @@ nextBtn.onclick = () => {
   params.set('m', currentDate.getMonth());
   params.set('d', currentDate.getDate());
   window.location.href = url;
+}
+
+
+test1Btn.ontouchstart = () => {
+  console.log('touch start!');
+}
+
+test1Btn.ontouchmove = () => {
+  console.log('touch move!');
+}
+
+test1Btn.ontouchend = () => {
+  console.log('touch end!');
+}
+
+test1Btn.ontouchcancel = () => {
+  console.log('touch cancel!');
 }
