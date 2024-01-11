@@ -43,8 +43,22 @@ const getVerses = () => {
 
   fetch('words.json').then(result => {
     result.json().then(data => {
-      verses = data[currentMonth][currentDay];
-      console.log(verses);
+      let book = data[currentMonth][currentDay].book;
+      let chapt = data[currentMonth][currentDay].chapter;
+      verses = data[currentMonth][currentDay].verses;
+      for(let verse of verses){
+        let verseP = document.createElement('p');
+        let verseSpan = document.createElement('span');
+        let verNum = verse.verse;
+        verseSpan.innerHTML = verNum + ". " + verse.word;
+        verseP.appendChild(verseSpan);
+        wordsBox.appendChild(verseP);
+      }
+      let bookP = document.createElement('p');
+      let bookSpan = document.createElement('span');
+      bookSpan.innerHTML = `${book} ${chapt}장`
+      bookP.appendChild(bookSpan);
+      wordsBox.appendChild(bookP);
     })
   })
 }

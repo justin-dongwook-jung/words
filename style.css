@@ -27,6 +27,10 @@ button {
     padding: 3px 7px;
 }
 
+p {
+    margin: .1em 1em 0 1em;
+    font-weight: 400;
+}
 
 #navigator {
     text-align: center;
