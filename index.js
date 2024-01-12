@@ -58,28 +58,29 @@ let lsId = ('00' + currentMonth).slice(-2)+('00' + currentDay).slice(-2);
 let isDone = localStorage.getItem(lsId);
 if(isDone) doneCheck.checked = true;
 
-fetch('words.json').then(result => {
-  result.json().then(data => {
-    //아직 구절이 추가 안된 경우
-    if(!data[currentMonth] || !data[currentMonth][currentDay]){
-      alert('Not yet!!!');
-      resetPage();
-    } 
+const getBook = async () => {
+  let wordsData = await fetch('words.json');
+  let data = await wordsData.json();
+  
+  //아직 구절이 추가 안된 경우
+  if(!data[currentMonth] || !data[currentMonth][currentDay]){
+    alert('Not yet!!!');
+    resetPage();
+  } 
 
-    while(wordsBox.firstChild){
-      wordsBox.removeChild(wordsBox.firstChild)
-    }
-    book = data[currentMonth][currentDay].book;
-    chapter = data[currentMonth][currentDay].chapter;
-    verses = data[currentMonth][currentDay].verses;
+  while(wordsBox.firstChild){
+    wordsBox.removeChild(wordsBox.firstChild)
+  }
+  book = data[currentMonth][currentDay].book;
+  chapter = data[currentMonth][currentDay].chapter;
+  verses = data[currentMonth][currentDay].verses;
 
-    printWord();
+  printWord();
 
-    let tomorrow = new Date(currentDate);
-    tomorrow.setDate(tomorrow.getDate()+1);
-    if(!data[tomorrow.getMonth()+1] || !data[tomorrow.getMonth()+1][tomorrow.getDate()])  nextBtn.hidden = true;
-  })
-})
+  let tomorrow = new Date(currentDate);
+  tomorrow.setDate(tomorrow.getDate()+1);
+  if(!data[tomorrow.getMonth()+1] || !data[tomorrow.getMonth()+1][tomorrow.getDate()])  nextBtn.hidden = true;
+}
 
 const printWord = (flag='word') => {
   while(wordsBox.firstChild){
@@ -103,6 +104,9 @@ const printWord = (flag='word') => {
   bookP.appendChild(bookSpan);
   wordsBox.appendChild(bookP);
 }
+
+//실행
+getBook()
 
 prevBtn.onclick = () => {
   currentDate.setDate(currentDate.getDate()-1);
