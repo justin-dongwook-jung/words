@@ -25,15 +25,10 @@ let resetPage = () => {
   window.location.href = url;
 }
 
-//파라미터가 없는 경우 초기화
-if(!params.get("m") || !params.get("d")){
-  resetPage();
-}
-
 //파라미터 세팅
 currentDate = new Date();
-currentDate.setMonth(params.get("m"));
-currentDate.setDate(params.get("d"));
+if(params.get("m")) currentDate.setMonth(params.get("m"));
+if(params.get("d")) currentDate.setDate(params.get("d"));
 
 prevDate = new Date(currentDate);
 prevDate.setDate(prevDate.getDate()-1);
