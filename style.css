@@ -88,6 +88,8 @@ p {
 #doneCheck {
     width: 100px;
     height: 50px;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* Media Queries */
