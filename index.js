@@ -98,6 +98,29 @@ const printWord = (flag='word') => {
   bookSpan.innerHTML = `${book} ${chapter}장`
   bookP.appendChild(bookSpan);
   wordsBox.appendChild(bookP);
+
+  wordsBox.onclick = async () => {
+    wordsBox.style.color = "#003399";
+    setTimeout(() => {
+      wordsBox.style.color = "black";
+    }, 3000);
+    const textToCopy = await wordsCopy();
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+    } catch (err) {
+    }
+  }
+}
+
+const wordsCopy = async () => {
+  return new Promise(resolve => {
+    let str = "";
+    for(let verse of verses){
+      str = str + verse.verse + ". " + verse.word + '\n';
+    }
+    str = str + book + ' ' + chapter + '장';
+    resolve(str);
+  })
 }
 
 //실행
