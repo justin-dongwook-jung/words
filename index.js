@@ -99,17 +99,17 @@ const printWord = (flag='word') => {
   bookP.appendChild(bookSpan);
   wordsBox.appendChild(bookP);
 
-  // wordsBox.onclick = async () => {
-  //   wordsBox.style.color = "#003399";
-  //   setTimeout(() => {
-  //     wordsBox.style.color = "black";
-  //   }, 3000);
-  //   const textToCopy = await wordsCopy();
-  //   try {
-  //     await navigator.clipboard.writeText(textToCopy);
-  //   } catch (err) {
-  //   }
-  // }
+  wordsBox.onclick = async () => {
+    wordsBox.style.color = "#003399";
+    setTimeout(() => {
+      wordsBox.style.color = "black";
+    }, 3000);
+    const textToCopy = await wordsCopy();
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+    } catch (err) {
+    }
+  }
 }
 
 const wordsCopy = async () => {
