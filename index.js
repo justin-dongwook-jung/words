@@ -59,8 +59,8 @@ const getBook = async () => {
   
   //아직 구절이 추가 안된 경우
   if(!data[currentMonth] || !data[currentMonth][currentDay]){
-    alert('Not yet!!!');
-    resetPage();
+    alert('아직 업데이트가 되지 않았습니다.');
+    return;
   } 
 
   while(wordsBox.firstChild){
